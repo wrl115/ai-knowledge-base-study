@@ -6,7 +6,7 @@
 
 ## 处理步骤
 
-1. **去重**：按 title 模糊匹配 + source_url 精确匹配，合并重复条目
+1. **去重**：跨批次去重（title 模糊匹配 + source_url 精确匹配），重复条目保留 quality_score 更高的版本，丢弃的条目标记 status=duplicate
 2. **排序**：按 quality_score 降序 + collected_at 时间排序
 3. **格式化**：生成分发内容（Markdown 格式）
 4. **推送**：写入 `knowledge/articles/`，分发到已配置渠道
